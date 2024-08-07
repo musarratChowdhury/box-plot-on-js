@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cricket Players Performance Box Plot</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <div id="box-plot" style="width: 800px; height: 600px"></div>
+    <script>
+      // Sample data for 100 cricket players
+      const teamA = Array.from({ length: 25 }, () =>
+        Math.floor(Math.random() * 100)
+      );
+      const teamB = Array.from({ length: 25 }, () =>
+        Math.floor(Math.random() * 100)
+      );
+      const teamC = Array.from({ length: 25 }, () =>
+        Math.floor(Math.random() * 100)
+      );
+      const teamD = Array.from({ length: 25 }, () =>
+        Math.floor(Math.random() * 100)
+      );
+
+      console.log(teamD.sort((a, b) => a - b));
+      // Create box plot traces for each team
+      const traceA = {
+        y: teamA,
+        type: "box",
+        name: "Team A",
+        boxpoints: "all", // Display all points
+        jitter: 0.3, // Add some jitter to the points for better visibility
+        pointpos: -1.8, // Position of points
+      };
+
+      const traceB = {
+        y: teamB,
+        type: "box",
+        name: "Team B",
+        boxpoints: "all",
+        jitter: 0.3,
+        pointpos: -1.8,
+      };
+
+      const traceC = {
+        y: teamC,
+        type: "box",
+        name: "Team C",
+        boxpoints: "all",
+        jitter: 0.3,
+        pointpos: -1.8,
+      };
+
+      const traceD = {
+        y: teamD,
+        type: "box",
+        name: "Team D",
+        boxpoints: "all",
+        jitter: 0.3,
+        pointpos: -1.8,
+      };
+
+      const data = [traceA, traceB, traceC, traceD];
+
+      const layout = {
+        title: "Cricket Players Performance by Team",
+        yaxis: {
+          title: "Runs Scored",
+        },
+        xaxis: {
+          title: "Teams",
+        },
+      };
+
+      // Render the plot
+      Plotly.newPlot("box-plot", data, layout);
+    </script>
+  </body>
+</html>
